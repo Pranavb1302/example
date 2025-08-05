@@ -9,9 +9,9 @@
         <!-- <img [src]="'./assets/users/'+UserSelected.avatar" [alt]="UserSelected.name"> -->
 
         <!--Using getter-->
-        <img [src]="imagePath()" [alt]="UserSelected().name">
+        <img [src]="imagePath" [alt]="name">
 
         <!-- We can use the UserSelected by string interpolation  {{}} -->
-        <span>{{UserSelected().name}}</span>
+        <span>{{name}}</span>
     </button>
 </div>
