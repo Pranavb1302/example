@@ -1,0 +1,17 @@
+<div>
+    <button (click)="OnUserSelect()">
+        <!-- we can also do property binding 
+        
+        also here angularr is not setting src attribute  but .src of img object 
+
+        if attributes like aria-label or any other Aria you have to use syntax [attr.src] this sets value to attribute
+        -->
+        <!-- <img [src]="'./assets/users/'+UserSelected.avatar" [alt]="UserSelected.name"> -->
+
+        <!--Using getter-->
+        <img [src]="imagePath()" [alt]="UserSelected().name">
+
+        <!-- We can use the UserSelected by string interpolation  {{}} -->
+        <span>{{UserSelected().name}}</span>
+    </button>
+</div>
