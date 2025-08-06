@@ -9,26 +9,46 @@
 
 <app-header></app-header>
 <main>
-    <ul id="users">
-        <li>
-            <app-user [path]="users[0].avatar" [name]="users[0].name"></app-user>
-        </li>
-        <li>
-            <app-user [path]="users[1].avatar" [name]="users[1].name"></app-user>
-        </li>
-        <li>
-            <app-user [path]="users[2].avatar" [name]="users[2].name"></app-user>
-        </li>
-        <li>
-            <app-user [path]="users[3].avatar" [name]="users[3].name"></app-user>
-        </li>
-        <li>
-            <app-user [path]="users[4].avatar" [name]="users[4].name"></app-user>
-        </li>
-        <li>
-            <app-user [path]="users[5].avatar" [name]="users[5].name"></app-user>
-        </li>
-    </ul>
+  <ul id="users">
+    <li>
+      <app-user
+        [user] = "users[0]"
+        (select)="onSelectUser($event)"
+      ></app-user>
+    </li>
+    <li>
+      <app-user
+        [user] = "users[1]"
+        (select)="onSelectUser($event)"
+      ></app-user>
+    </li>
+    <li>
+      <app-user
+        [user] = "users[2]"
+        (select)="onSelectUser($event)"
+      ></app-user>
+    </li>
+    <li>
+      <app-user
+        [user] = "users[3]"
+        (select)="onSelectUser($event)"
+      ></app-user>
+    </li>
+    <li>
+      <app-user
+        [user] = "users[4]"
+        (select)="onSelectUser($event)"
+      ></app-user>
+    </li>
+    <li>
+      <app-user
+        [user] = "users[5]"
+        (select)="onSelectUser($event)"
+      ></app-user>
+    </li>
+  </ul>
+
+  <app-tasks [name] = "userSelected?.name "/>
 </main>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
@@ -37,6 +57,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 
 <router-outlet />
