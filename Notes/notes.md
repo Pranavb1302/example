@@ -189,3 +189,5 @@ export class UserComponent {
 - It works without `zone.js`.
 - It integrates better with Angular Signals-based architecture.
 - Ideal for performance-critical or reactive-heavy apps.
+
+

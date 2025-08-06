@@ -8,11 +8,12 @@ import { Component,computed,Input,input } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input()path!:string
-  @Input()name!:string
+
+  @Input({required:true})path!:string;
+  @Input({required:true})name!:string;
 
   get imagePath(){
-    return  `./assets/users/${this.path}`
+    return `assets/users/${this.path}`
   }
   // method
   OnUserSelect() {
