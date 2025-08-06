@@ -1,61 +1,22 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <app-header></app-header>
 <main>
   <ul id="users">
+    @for(user of users; track user.id){
+    <!-- this track here tells angular that
+    this the thinng with which you should uniquely identify below list items -->
     <li>
-      <app-user
-        [user] = "users[0]"
-        (select)="onSelectUser($event)"
-      ></app-user>
+      <app-user [user]="user" (select)="onSelectUser($event)"></app-user>
     </li>
-    <li>
-      <app-user
-        [user] = "users[1]"
-        (select)="onSelectUser($event)"
-      ></app-user>
-    </li>
-    <li>
-      <app-user
-        [user] = "users[2]"
-        (select)="onSelectUser($event)"
-      ></app-user>
-    </li>
-    <li>
-      <app-user
-        [user] = "users[3]"
-        (select)="onSelectUser($event)"
-      ></app-user>
-    </li>
-    <li>
-      <app-user
-        [user] = "users[4]"
-        (select)="onSelectUser($event)"
-      ></app-user>
-    </li>
-    <li>
-      <app-user
-        [user] = "users[5]"
-        (select)="onSelectUser($event)"
-      ></app-user>
-    </li>
+    }
   </ul>
 
-  <app-tasks [name] = "userSelected?.name "/>
+  @if(userSelected){
+
+    <app-tasks [userId]="userSelected.id" [name]="userSelected.name" />
+  }@else {
+    <p id="fallback">Please select a user to se their tasks</p>
+  }
 </main>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <router-outlet />
