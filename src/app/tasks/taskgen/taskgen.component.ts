@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewTask } from '../task/task.model';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-taskgen',
@@ -9,8 +10,8 @@ import { NewTask } from '../task/task.model';
   styleUrl: './taskgen.component.css'
 })
 export class TaskgenComponent {
-  @Output() cancel= new EventEmitter<void>(); // void mean no data will be emitted
-  @Output() add = new EventEmitter<NewTask>();
+  @Input({required:true}) userId!:string;
+  @Output() close= new EventEmitter<void>(); // void mean no data will be emitted
 
   enteredTitle = '';
   enteredSummary = '';
@@ -19,15 +20,17 @@ export class TaskgenComponent {
   // enteredTitle = signal('');
   // enteredSummary = signal('');
   // enteredDate = signal('');
+
+  private tasksService = inject(TasksService);
   onCancel(){
-    this.cancel.emit();
+    this.close.emit();
   }
   onSubmit(){
-    //will emit obj
-    this.add.emit({
+    this.tasksService.addTask({
       title:this.enteredTitle,
       summary:this.enteredSummary,
       dueDate:this.enteredDate
-    });
+    },this.userId)
+    this.close.emit();
   }
 }
