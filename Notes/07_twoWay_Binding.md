@@ -5,6 +5,7 @@ A collection of notes on two-way data binding, form submission, and content proj
 ---
 
 ## 1. `[(ngModel)]` and Two-Way Data Binding
+![Alt text](image.png "Optional Title")
 
 In Angular, `[(ngModel)]` is the special syntax for **two-way data binding**. It creates a direct, dynamic link between a property in your component's TypeScript file and an input field in its HTML template.
 
