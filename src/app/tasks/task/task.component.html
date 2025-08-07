@@ -1,8 +1,10 @@
-<article>
-  <h2>TASK TITLE</h2>
-  <time>TIME</time>
-  <Summary>SUMMARY</Summary>
+<app-card>
+  <article>
+  <h2>{{task.title}}</h2>
+  <time>{{task.dueDate}}</time>
+  <Summary>{{task.summary}}</Summary>
   <p class="actions">
-    <button>Comlete</button>
+    <button (click)="onCompleteTask()">Comlete</button>
   </p>
 </article>
+</app-card>

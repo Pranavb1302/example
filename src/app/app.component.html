@@ -6,7 +6,7 @@
     <!-- this track here tells angular that
     this the thinng with which you should uniquely identify below list items -->
     <li>
-      <app-user [user]="user" (select)="onSelectUser($event)"></app-user>
+      <app-user [selected]="user.id == selectedUserId" [user]="user" (select)="onSelectUser($event)"></app-user>
     </li>
     }
   </ul>

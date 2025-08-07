@@ -1,5 +1,5 @@
-<div>
-    <button (click)="OnUserSelect()">
+<app-card>
+    <button [class.active] = "selected" (click)="OnUserSelect()" >
         <!-- we can also do property binding 
         
         also here angularr is not setting src attribute  but .src of img object 
@@ -14,4 +14,4 @@
         <!-- We can use the UserSelected by string interpolation  {{}} -->
         <span>{{user.name}}</span>
     </button>
-</div>
+</app-card>
