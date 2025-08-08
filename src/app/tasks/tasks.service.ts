@@ -28,22 +28,35 @@ export class TasksService {
       dueDate: '2024-06-15',
     },
   ];
+  
+  constructor(){
+    const tasks = localStorage.getItem('tasks')
+    if(tasks){
+      this.dummyTasks = JSON.parse(tasks);
+    }
+  }
 
   getTasks(userId: string) {
-    return this.dummyTasks.filter((task) => userId === task.userId);
+    return this.dummyTasks.filter((task) => userId === task.userId)
   }
 
   addTask(data:NewTask,userId:string) {
     this.dummyTasks.unshift({
       id: new Date().toLocaleDateString(),
       userId:  userId,
-      title: data.title,
+      title: data.title, 
       summary: data.summary,
       dueDate: data.dueDate,
     });
+    this.saveTasks();
   }
 
   removeTask(id:string){
-    return this.dummyTasks = this.dummyTasks.filter((task)=>task.id !== id);
+     this.dummyTasks = this.dummyTasks.filter((task)=>task.id !== id);
+     this.saveTasks();
+  }  
+
+  private saveTasks(){
+    localStorage.setItem('tasks',JSON.stringify(this.dummyTasks));
   }
 }
