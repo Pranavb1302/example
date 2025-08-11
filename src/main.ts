@@ -1,9 +1,4 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
-// import { HeaderComponent } from './app/header.component';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic'
+import { AppModule } from './app/app.module'
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
-
-// bootstrapApplication(HeaderComponent); // bad practice as we want to create tree of components
+platformBrowserDynamic().bootstrapModule(AppModule)

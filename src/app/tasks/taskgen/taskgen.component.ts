@@ -5,7 +5,7 @@ import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-taskgen',
-  imports: [FormsModule],
+  standalone:false,
   templateUrl: './taskgen.component.html',
   styleUrl: './taskgen.component.css'
 })
@@ -32,5 +32,11 @@ export class TaskgenComponent {
       dueDate:this.enteredDate
     },this.userId)
     this.close.emit();
+  }
+
+  // two way binding without [(ngModel)]
+  onInputChange(e:Event){
+    const inputElement = e.target as HTMLInputElement;
+    this.enteredTitle = inputElement.value
   }
 }

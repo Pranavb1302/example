@@ -4,7 +4,10 @@
   <form (ngSubmit)="onSubmit()">
     <p>
       <label for="title">Title</label>
-      <input type="text" id="title" name="title" [(ngModel)] ="enteredTitle"/>
+      <input type="text" id="title" name="title" [value]="enteredTitle"
+      (input)="onInputChange($event)"
+      
+      />
     </p>
 
     <p>

@@ -42,7 +42,7 @@ export class TasksService {
 
   addTask(data:NewTask,userId:string) {
     this.dummyTasks.unshift({
-      id: new Date().toLocaleDateString(),
+      id:  Date.now().toString(),
       userId:  userId,
       title: data.title, 
       summary: data.summary,
